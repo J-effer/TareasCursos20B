@@ -1,0 +1,18 @@
+Código en MATLAB para transformada de Fourier analítica.
+
+syms t k
+y_sym = 3*cos(1*t) + 5*cos(3*1*t) + 8*cos(7*1*t);
+Fy(k) = fourier(y_sym, k);
+delta = @(x) 1.*(x == 0);
+display(Fy);
+
+==>3*pi*(dirac(k - 1) + dirac(k + 1)) + 5*pi*(dirac(k - 3) + dirac(k + 3)) + 8*pi*(dirac(k - 7) + dirac(k + 7))
+
+
+
+syms t k
+y_sym = 3*sin(1*t) + 2*sin(3*1*t) + 3*sin(8*1*t);
+Fy(k) = fourier(y_sym, k);
+delta = @(x) 1.*(x == 0);
+display(Fy);
+==> - pi*(dirac(k - 1) - dirac(k + 1))*3i - pi*(dirac(k - 3) - dirac(k + 3))*2i - pi*(dirac(k - 8) - dirac(k + 8))*3i
